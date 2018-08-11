@@ -17,8 +17,8 @@ namespace EventManagement.ApiControllers
         [Authorize]
         public IHttpActionResult GetAll()
         {
-            var identity = (ClaimsIdentity)User.Identity;
-            IEnumerable<Claim> claims = identity.Claims;
+            //var identity = (ClaimsIdentity)User.Identity;
+            //IEnumerable<Claim> claims = identity.Claims;
             return Ok(_eventRepo.All().ToList());
         }
     }
