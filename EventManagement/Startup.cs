@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using EventManagement.Common;
+using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -25,7 +26,7 @@ namespace EventManagement
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(Utilities.ConfigInt("AccessTokenExpiration")),
                 Provider = new SimpleAuthorizationServerProvider()
             };
 
