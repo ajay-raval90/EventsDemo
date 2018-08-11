@@ -1,21 +1,15 @@
-Angular 2+ Fundamentals Course
-========================
-This is the getting started package for the Pluralsight course on Angular 2 Fundamentals found here: http://app.pluralsight.com/courses/angular-fundamentals
-
-**Course Status**
-
-The course is currently up-to-date with **Angular 4.0**.
-
-Note: This is the course for all versions of Angular since Angular 2.0. The Angular team plans to release a new major version every 6 months and this page will tell you how up-to-date the course is.
+Project is setup for the Learning Purpose.
+==============================================================
+This includes,
+1) Entity Framework: Code First Approach
+2) WebAPI : Authentication using bearer token and simple APIS
+3) Front End : Angular 2
 
 
-Getting Started
----------------
-Be sure you're running the recommended node version, which is 6.3.0+: `node --version`
+Set Your Own Web.config.
+Restore the nuget packages.
 
-Follow along with the course linked above. To start the server:
+For Creating database run the migration use the following command:
+Update-Database 
 
-```
-npm install
-npm start
-```
+
