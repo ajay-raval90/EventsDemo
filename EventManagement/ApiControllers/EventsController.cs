@@ -1,4 +1,5 @@
 ﻿using EventManagement.DB.Interfaces;
+using EventManagement.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace EventManagement.ApiControllers
         public EventsController(IEventRepository eventRepo):base(eventRepo)
         {
         }
-        [Authorize]
+        [AuthorizeApi]
         public IHttpActionResult GetAll()
         {
             //var identity = (ClaimsIdentity)User.Identity;

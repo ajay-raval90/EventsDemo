@@ -269,6 +269,7 @@
     <Compile Include="DB\Interfaces\IProfileRepositoy.cs" />
     <Compile Include="DB\Repository\EventRepository.cs" />
     <Compile Include="DB\Repository\ProfileRepository.cs" />
+    <Compile Include="Filters\AuthorizeApi.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
