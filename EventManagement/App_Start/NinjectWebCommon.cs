@@ -67,6 +67,7 @@ namespace EventManagement.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IEventRepository>().To<EventRepository>();
+            kernel.Bind<IProfileRepository>().To<ProfileRepository>();
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
         }
     }
