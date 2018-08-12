@@ -15,7 +15,7 @@ namespace EventManagement.ApiControllers
         public EventsController(IEventRepository eventRepo):base(eventRepo)
         {
         }
-        [AuthorizeApi]
+        [Authorize]
         public IHttpActionResult GetAll()
         {
             //var identity = (ClaimsIdentity)User.Identity;

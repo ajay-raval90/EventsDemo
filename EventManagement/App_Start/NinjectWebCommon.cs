@@ -68,6 +68,8 @@ namespace EventManagement.App_Start
         {
             kernel.Bind<IEventRepository>().To<EventRepository>();
             kernel.Bind<IProfileRepository>().To<ProfileRepository>();
+            kernel.Bind<IAuthRepository>().To<AuthRepository>();
+            kernel.Bind<IAudienceRepository>().To<AudienceRepository>();
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
         }
     }
