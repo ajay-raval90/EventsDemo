@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventManagement.DB.Repository;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace EventManagement.DB
         }
         protected override void Seed(EventDbContext context)
         {
+            using (AuthRepository authRepo = new AuthRepository())
+            {
+                authRepo.SeedClients();
+            }
         }
     }
 }

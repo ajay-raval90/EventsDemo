@@ -18,6 +18,9 @@ namespace EventManagement.DB
 
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Event> Events { get; set; }
+
+        public DbSet<Client> Clients{ get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 
 }

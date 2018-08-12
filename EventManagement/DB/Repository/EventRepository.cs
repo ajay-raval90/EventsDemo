@@ -7,7 +7,7 @@ using System.Web;
 
 namespace EventManagement.DB.Repository
 {
-    public class EventRepository : IEventRepository
+    public class EventRepository : IEventRepository,IDisposable
     {
 
         EventDbContext context;

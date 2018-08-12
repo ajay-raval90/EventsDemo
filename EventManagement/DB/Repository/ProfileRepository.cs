@@ -7,7 +7,7 @@ using System.Web;
 
 namespace EventManagement.DB.Repository
 {
-    public class ProfileRepository : IProfileRepository
+    public class ProfileRepository : IProfileRepository, IDisposable
     {
 
         EventDbContext context;
