@@ -14,6 +14,8 @@ using System.Web.Routing;
 using Microsoft.Owin.Security.DataHandler.Encoder;
 using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security;
+using EventManagement.DB.Repository;
+using EventManagement.DB.Entities;
 
 [assembly: OwinStartup(typeof(EventManagement.Startup))]
 namespace EventManagement
@@ -44,22 +46,27 @@ namespace EventManagement
 
 
 
-            
+
+
 
             var issuer = "http://localhost:50457";
-            var audience = "1a6d2ad459654706aca3930658d6d872";
-            var secret = TextEncodings.Base64Url.Decode("b3WK73A1gEKym9oaTmlqH6hE0x3eTSoIhwiryueCX4Y");
-
+            AudienceRepository repo = new AudienceRepository();
+            List<string> audienceListArray = new List<string>();
+            List<IIssuerSecurityTokenProvider> tokenProviders = new List<IIssuerSecurityTokenProvider>();
+            List<Audience> audienceList = repo.GetAllAudience();
+            foreach (var audience in audienceList)
+            {
+                audienceListArray.Add(audience.ClientId);
+                tokenProviders.Add(new SymmetricKeyIssuerSecurityTokenProvider(issuer, TextEncodings.Base64Url.Decode(audience.Base64Secret)));
+            }
+            
             // Api controllers with an [Authorize] attribute will be validated with JWT
             app.UseJwtBearerAuthentication(
                 new JwtBearerAuthenticationOptions
                 {
                     AuthenticationMode = AuthenticationMode.Active,
-                    AllowedAudiences = new[] { audience },
-                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
-                    {
-                        new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
-                    }
+                    AllowedAudiences = audienceListArray,
+                    IssuerSecurityTokenProviders = tokenProviders
                 });
 
         }

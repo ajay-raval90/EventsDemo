@@ -35,6 +35,10 @@ namespace EventManagement.DB.Repository
             return newAudience;
         }
 
+        public List<Audience> GetAllAudience()
+        {
+            return context.Audience.ToList();
+        }
         public Audience FindAudience(string clientId)
         {
             return context.Audience.Find(clientId);
