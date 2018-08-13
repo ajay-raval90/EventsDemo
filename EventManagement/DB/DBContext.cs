@@ -21,6 +21,8 @@ namespace EventManagement.DB
 
         public DbSet<Client> Clients{ get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<Audience> Audience { get; set; }
+
     }
 
 }

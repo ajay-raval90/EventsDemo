@@ -18,6 +18,10 @@ namespace EventManagement.DB
             {
                 authRepo.SeedClients();
             }
+            using (AudienceRepository audRepo = new AudienceRepository())
+            {
+                audRepo.SeedAudience();
+            }
         }
     }
 }
