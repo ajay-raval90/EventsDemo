@@ -12,17 +12,17 @@ typings
 
 #Custom Filters
 
-#Playbooks/Playbooks/Web.config
+
 *.cache
 *.orig
 *.DS_Store
 *.db
-#Playbooks/Resources/Web.config
+
 .BACKUP,.REMOTE,.LOCAL
 .BACKUP,.REMOTE,.LOCAL
-#Playbooks/Reports/App.config
+
 *.force
-#Playbooks/OfflineCodeBuilder/App.config
+
 
 # User-specific files
 *.suo

@@ -13,6 +13,13 @@ namespace EventManagement
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "eventsapp",
+                url: "eventsapp/{*catchAll}",
+                defaults: new { controller = "Home", action = "Index"}
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

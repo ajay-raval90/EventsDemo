@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.7</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -293,7 +295,6 @@
     <Compile Include="Common\Utilities.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DB\Configuration.cs" />
     <Compile Include="DB\DBContext.cs" />
     <Compile Include="DB\Entities\Audience.cs" />
@@ -339,6 +340,62 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="eventsapp\app\app.module.js" />
+    <Content Include="eventsapp\app\assets\images\angularconnect-shield.png" />
+    <Content Include="eventsapp\app\assets\images\basic-shield.png" />
+    <Content Include="eventsapp\app\assets\images\ng-conf.png" />
+    <Content Include="eventsapp\app\assets\images\ng-nl.png" />
+    <Content Include="eventsapp\app\assets\images\ng-vegas.png" />
+    <Content Include="eventsapp\app\common\collapsible-well.component.js" />
+    <Content Include="eventsapp\app\common\index.js" />
+    <Content Include="eventsapp\app\common\jquery-service.js" />
+    <Content Include="eventsapp\app\common\loadsh-service.js" />
+    <Content Include="eventsapp\app\common\modal-trigger.directive.js" />
+    <Content Include="eventsapp\app\common\simple-modal.component.js" />
+    <Content Include="eventsapp\app\common\toastr-service.js" />
+    <Content Include="eventsapp\app\dummy.js" />
+    <Content Include="eventsapp\app\errors\404.component.js" />
+    <Content Include="eventsapp\app\events-app.component.js" />
+    <Content Include="eventsapp\app\events\create-event-route-activator.js" />
+    <Content Include="eventsapp\app\events\create-event.component.html" />
+    <Content Include="eventsapp\app\events\create-event.component.js" />
+    <Content Include="eventsapp\app\events\create-session.component.html" />
+    <Content Include="eventsapp\app\events\create-session.component.js" />
+    <Content Include="eventsapp\app\events\event-details.component.html" />
+    <Content Include="eventsapp\app\events\event-details.component.js" />
+    <Content Include="eventsapp\app\events\event-list.resolver.js" />
+    <Content Include="eventsapp\app\events\event-route-activator.js" />
+    <Content Include="eventsapp\app\events\event-route-deactivator.js" />
+    <Content Include="eventsapp\app\events\event-thumbnail.component.js" />
+    <Content Include="eventsapp\app\events\events-list.component.js" />
+    <Content Include="eventsapp\app\events\index.js" />
+    <Content Include="eventsapp\app\events\location-validator.directive.js" />
+    <Content Include="eventsapp\app\events\restricted-words.validator.js" />
+    <Content Include="eventsapp\app\events\session-list.component.html" />
+    <Content Include="eventsapp\app\events\session-list.component.js" />
+    <Content Include="eventsapp\app\events\shared\duration.pipe.js" />
+    <Content Include="eventsapp\app\events\shared\event-service.js" />
+    <Content Include="eventsapp\app\events\shared\event.model.js" />
+    <Content Include="eventsapp\app\events\shared\index.js" />
+    <Content Include="eventsapp\app\events\shared\voter.service.js" />
+    <Content Include="eventsapp\app\events\upvote.component.css" />
+    <Content Include="eventsapp\app\events\upvote.component.js" />
+    <Content Include="eventsapp\app\main.js" />
+    <Content Include="eventsapp\app\nav\nav.component.html" />
+    <Content Include="eventsapp\app\nav\nav.component.js" />
+    <Content Include="eventsapp\app\routes.js" />
+    <Content Include="eventsapp\app\user\auth.activator.js" />
+    <Content Include="eventsapp\app\user\auth.service.js" />
+    <Content Include="eventsapp\app\user\login.component.html" />
+    <Content Include="eventsapp\app\user\login.component.js" />
+    <Content Include="eventsapp\app\user\profile.component.html" />
+    <Content Include="eventsapp\app\user\profile.component.js" />
+    <Content Include="eventsapp\app\user\user.model.js" />
+    <Content Include="eventsapp\app\user\user.module.js" />
+    <Content Include="eventsapp\app\user\user.routes.js" />
+    <Content Include="eventsapp\favicon.ico" />
+    <Content Include="eventsapp\styles.css" />
+    <Content Include="eventsapp\systemjs.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -366,6 +423,50 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="eventsapp\app\app.module.js.map" />
+    <Content Include="eventsapp\app\common\collapsible-well.component.js.map" />
+    <Content Include="eventsapp\app\common\index.js.map" />
+    <Content Include="eventsapp\app\common\jquery-service.js.map" />
+    <Content Include="eventsapp\app\common\loadsh-service.js.map" />
+    <Content Include="eventsapp\app\common\modal-trigger.directive.js.map" />
+    <Content Include="eventsapp\app\common\simple-modal.component.js.map" />
+    <Content Include="eventsapp\app\common\toastr-service.js.map" />
+    <Content Include="eventsapp\app\dummy.js.map" />
+    <Content Include="eventsapp\app\errors\404.component.js.map" />
+    <Content Include="eventsapp\app\events-app.component.js.map" />
+    <Content Include="eventsapp\app\events\create-event-route-activator.js.map" />
+    <Content Include="eventsapp\app\events\create-event.component.js.map" />
+    <Content Include="eventsapp\app\events\create-session.component.js.map" />
+    <Content Include="eventsapp\app\events\event-details.component.js.map" />
+    <Content Include="eventsapp\app\events\event-list.resolver.js.map" />
+    <Content Include="eventsapp\app\events\event-route-activator.js.map" />
+    <Content Include="eventsapp\app\events\event-route-deactivator.js.map" />
+    <Content Include="eventsapp\app\events\event-route-deactivator.ts.bak" />
+    <Content Include="eventsapp\app\events\event-thumbnail.component.js.map" />
+    <Content Include="eventsapp\app\events\events-list.component.js.map" />
+    <Content Include="eventsapp\app\events\index.js.map" />
+    <Content Include="eventsapp\app\events\location-validator.directive.js.map" />
+    <Content Include="eventsapp\app\events\restricted-words.validator.js.map" />
+    <Content Include="eventsapp\app\events\session-list.component.js.map" />
+    <Content Include="eventsapp\app\events\shared\duration.pipe.js.map" />
+    <Content Include="eventsapp\app\events\shared\event-service.js.map" />
+    <Content Include="eventsapp\app\events\shared\event-service.ts.bak" />
+    <Content Include="eventsapp\app\events\shared\event.model.js.map" />
+    <Content Include="eventsapp\app\events\shared\index.js.map" />
+    <Content Include="eventsapp\app\events\shared\voter.service.js.map" />
+    <Content Include="eventsapp\app\events\upvote.component.js.map" />
+    <Content Include="eventsapp\app\main.js.map" />
+    <Content Include="eventsapp\app\nav\nav.component.js.map" />
+    <Content Include="eventsapp\app\routes.js.map" />
+    <Content Include="eventsapp\app\user\auth.activator.js.map" />
+    <Content Include="eventsapp\app\user\auth.service.js.map" />
+    <Content Include="eventsapp\app\user\login.component.js.map" />
+    <Content Include="eventsapp\app\user\profile.component.js.map" />
+    <Content Include="eventsapp\app\user\user.model.js.map" />
+    <Content Include="eventsapp\app\user\user.module.js.map" />
+    <Content Include="eventsapp\app\user\user.routes.js.map" />
+    <Content Include="eventsapp\package.json" />
+    <Content Include="eventsapp\tsconfig.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -389,6 +490,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -410,11 +512,52 @@
       <DependentUpon>201808131040173_create_audience_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="eventsapp\app\app.module.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\collapsible-well.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\index.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\jquery-service.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\loadsh-service.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\modal-trigger.directive.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\simple-modal.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\common\toastr-service.ts" />
+    <TypeScriptCompile Include="eventsapp\app\errors\404.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events-app.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\create-event.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\create-session.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\event-details.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\event-list.resolver.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\event-route-activator.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\event-route-deactivator.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\event-thumbnail.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\events-list.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\index.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\location-validator.directive.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\restricted-words.validator.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\session-list.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\shared\duration.pipe.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\shared\event-service.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\shared\event.model.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\shared\index.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\shared\voter.service.ts" />
+    <TypeScriptCompile Include="eventsapp\app\events\upvote.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\main.ts" />
+    <TypeScriptCompile Include="eventsapp\app\nav\nav.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\routes.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\auth.activator.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\auth.service.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\login.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\profile.component.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\user.model.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\user.module.ts" />
+    <TypeScriptCompile Include="eventsapp\app\user\user.routes.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
