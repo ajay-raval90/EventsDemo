@@ -164,6 +164,10 @@ namespace EventManagement.DB.Repository
             context.SaveChanges();
         }
 
+        public List<session> SearchSessions(string Searchterm)
+        {
+            return context.Sessions.Where(t => t.name.ToLower().Contains(Searchterm)).ToList();
+        }
         public void Dispose()
         {
             context.Dispose();

@@ -15,5 +15,6 @@ namespace EventManagement.DB.Interfaces
         void Delete(int id);
         void Save();
         void SeedEvents();
+        List<session> SearchSessions(string Searchterm);
     }
 }

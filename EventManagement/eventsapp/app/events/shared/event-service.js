@@ -40,20 +40,16 @@ var EventService = /** @class */ (function () {
         }).catch(this.handleError);
     };
     EventService.prototype.searchSessions = function (searchTerm) {
+        var emitter = new core_1.EventEmitter(true);
         var term = searchTerm.toLocaleLowerCase();
         var results = [];
-        Events.forEach(function (event) {
-            var matchingSessions = event.sessions.filter(function (session) { return session.name.toLocaleLowerCase().indexOf(term) > -1; });
-            matchingSessions = matchingSessions.map(function (session) {
-                session.eventId = event.id;
-                return session;
-            });
-            results = results.concat(matchingSessions);
-        });
-        var emitter = new core_1.EventEmitter(true);
-        setTimeout(function () {
+        this.http.get("/api/events/action/SearchSession?searchTerm=" + term).map(function (response) {
+            return response.json();
+        }).catch(this.handleError).subscribe(function (res) {
+            results = res;
             emitter.emit(results);
-        }, 100);
+            console.log("1", results);
+        });
         return emitter;
     };
     EventService.prototype.handleError = function (error) {

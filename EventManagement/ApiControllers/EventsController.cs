@@ -61,7 +61,7 @@ namespace EventManagement.ApiControllers
         {
             _eventRepo.InsertOrUpdate(eve);
             _eventRepo.Save();
-            eve = _eventRepo.Find(eve.id , new string[] { "sessions.VoterList.profile", "location" });
+            eve = _eventRepo.Find(eve.id, new string[] { "sessions.VoterList.profile", "location" });
             eve.sessions.ToList().ForEach(session =>
             {
                 session.voters = new string[] { };
@@ -72,6 +72,15 @@ namespace EventManagement.ApiControllers
 
             });
             return Ok(eve);
+        }
+
+        [HttpGet]
+        public IHttpActionResult SearchSession(string searchTerm)
+        {
+            searchTerm = searchTerm.ToLower();
+            List<session> matchingSessions = _eventRepo.SearchSessions(searchTerm);
+            return Ok(matchingSessions);
+
         }
     }
 }
