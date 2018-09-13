@@ -32,9 +32,12 @@ var EventService = /** @class */ (function () {
         }).catch(this.handleError);
     };
     EventService.prototype.saveEvent = function (event) {
-        event.id = Math.ceil(Math.random() * (2000 - 900) + 900);
-        event.sessions = [];
-        Events.push(event);
+        //event.id = 0; //Math.ceil(Math.random() * (2000 - 900) + 900);
+        //event.sessions = [];
+        //Events.push(event);
+        return this.http.post("/api/events/action/save", event).map(function (response) {
+            return response.json();
+        }).catch(this.handleError);
     };
     EventService.prototype.updateEvent = function (event) {
         var index = Events.findIndex(function (t) { return t.id == event.id; });

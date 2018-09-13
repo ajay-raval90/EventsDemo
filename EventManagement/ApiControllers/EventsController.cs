@@ -1,4 +1,5 @@
-﻿using EventManagement.DB.Interfaces;
+﻿using EventManagement.DB.Entities;
+using EventManagement.DB.Interfaces;
 using EventManagement.Filters;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,14 @@ namespace EventManagement.ApiControllers
                 }
 
             });
+            return Ok(eve);
+        }
+
+        [HttpPost]
+        public IHttpActionResult Save(Event eve)
+        {
+            _eventRepo.InsertOrUpdate(eve);
+            _eventRepo.Save();
             return Ok(eve);
         }
     }
