@@ -31,6 +31,7 @@ import { routes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from "./user/auth.service";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms/";
+import { HttpModule } from "@angular/http";
 import { DurationPipe, VoterService } from "./events/shared/index";
 import { AuthActivator } from './user/auth.activator';
 import { LocationValidator } from './events/location-validator.directive';
@@ -44,7 +45,8 @@ declare let toastr:IToastr
     imports: [BrowserModule,
         RouterModule.forRoot(routes),
         FormsModule,
-        ReactiveFormsModule
+        HttpModule,
+        ReactiveFormsModule,
     ],
     declarations: [
         EventsAppComponent,

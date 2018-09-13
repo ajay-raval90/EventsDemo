@@ -17,6 +17,7 @@ var routes_1 = require("./routes");
 var _404_component_1 = require("./errors/404.component");
 var auth_service_1 = require("./user/auth.service");
 var _1 = require("@angular/forms/");
+var http_1 = require("@angular/http");
 var index_3 = require("./events/shared/index");
 var auth_activator_1 = require("./user/auth.activator");
 var location_validator_directive_1 = require("./events/location-validator.directive");
@@ -28,7 +29,8 @@ var AppModule = /** @class */ (function () {
             imports: [platform_browser_1.BrowserModule,
                 router_1.RouterModule.forRoot(routes_1.routes),
                 _1.FormsModule,
-                _1.ReactiveFormsModule
+                http_1.HttpModule,
+                _1.ReactiveFormsModule,
             ],
             declarations: [
                 index_1.EventsAppComponent,

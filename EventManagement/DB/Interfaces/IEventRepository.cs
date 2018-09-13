@@ -10,7 +10,7 @@ namespace EventManagement.DB.Interfaces
     public interface IEventRepository : IDisposable
     {
         IQueryable<Event> All(string [] include = null);
-        Event Find(int? id);
+        Event Find(int? id, string[] include = null);
         void InsertOrUpdate(Event ev);
         void Delete(int id);
         void Save();

@@ -21,10 +21,13 @@ export class EventDetailsComponent implements OnInit {
 
     }
     ngOnInit() {
-        this.route.params.forEach((routeParams : Params )=> {
-            this.event = this.eventService.getEvent
-            (+routeParams['id']);    
-            this.resetComponent();
+        this.route.params.forEach((routeParams: Params) => {
+            this.eventService.getEvent(+routeParams['id']).subscribe((event: IEvent) => {
+                console.log(event)
+                this.event = event;
+                this.resetComponent();
+            });    
+            
         });
     }
     addSession() {

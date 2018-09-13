@@ -22,8 +22,11 @@ var EventDetailsComponent = /** @class */ (function () {
     EventDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (routeParams) {
-            _this.event = _this.eventService.getEvent(+routeParams['id']);
-            _this.resetComponent();
+            _this.eventService.getEvent(+routeParams['id']).subscribe(function (event) {
+                console.log(event);
+                _this.event = event;
+                _this.resetComponent();
+            });
         });
     };
     EventDetailsComponent.prototype.addSession = function () {

@@ -12,15 +12,47 @@ namespace EventManagement.ApiControllers
 {
     public class EventsController : BaseApiController
     {
-        public EventsController(IEventRepository eventRepo):base(eventRepo)
+        public EventsController(IEventRepository eventRepo) : base(eventRepo)
         {
         }
-        [AuthorizeApi]
+        //[AuthorizeApi]
+        [HttpGet]
         public IHttpActionResult GetAll()
         {
             //var identity = (ClaimsIdentity)User.Identity;
             //IEnumerable<Claim> claims = identity.Claims;
-            return Ok(_eventRepo.All().ToList());
+            var eventList = _eventRepo.All(new string[] { "sessions", "location" }).ToList();
+            foreach (var eve in eventList)
+            {
+                eve.sessions.ToList().ForEach(session =>
+                {
+                    session.voters = new string[] { };
+                    if (session.VoterList != null)
+                    {
+                        session.voters = session.VoterList.Select(t => t.profile.FirstName).ToArray();
+                    }
+
+                });
+            }
+            return Ok(eventList);
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            //var identity = (ClaimsIdentity)User.Identity;
+            //IEnumerable<Claim> claims = identity.Claims;
+            var eve = _eventRepo.Find(Id, new string[] { "sessions.VoterList.profile", "location" });
+            eve.sessions.ToList().ForEach(session =>
+            {
+                session.voters = new string[] { };
+                if (session.VoterList != null)
+                {
+                    session.voters = session.VoterList.Select(t => t.profile.FirstName).ToArray();
+                }
+
+            });
+            return Ok(eve);
         }
     }
 }

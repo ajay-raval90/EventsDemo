@@ -21,29 +21,35 @@ namespace EventManagement.DB.Repository
         {
             this.context = context;
         }
+        public EventRepository()
+        {
+            this.context = new EventDbContext();
+        }
 
         public IQueryable<Event> All(string []include = null)
         {
             var eventsQuery = context.Events.AsQueryable();
-            if (include == null)
+            if (include != null)
             {
-                return eventsQuery;
-            }
-            else
-            {
-                
                 foreach (var inc in include)
                 {
                     eventsQuery = eventsQuery.Include(inc);
                 }
-                return eventsQuery;
             }
+            return eventsQuery;
         }
 
-        public Event Find(int? id)
+        public Event Find(int? id,string [] include = null)
         {
-            Event ev = context.Events.Where(p => p.id == id).FirstOrDefault();
-            return ev;
+            var eventsQuery = context.Events.AsQueryable();
+            if (include != null)
+            {
+                foreach (var inc in include)
+                {
+                    eventsQuery = eventsQuery.Include(inc);
+                }
+            }
+            return eventsQuery.Where(p => p.id == id).FirstOrDefault();
         }
 
         public void InsertOrUpdate(Event ev)
@@ -89,6 +95,7 @@ namespace EventManagement.DB.Repository
                                                  
                         eventobject.sessions.ToList().ForEach(s => {
                             s.id = 0;
+                            s.VoterList = new List<Voter>();
                             s.voters.ToList().ForEach(voter =>
                             {
                                 Voter voterItem = new Voter();
@@ -97,7 +104,6 @@ namespace EventManagement.DB.Repository
                                 {
                                     voterItem.profile = exists;
                                 }
-                                s.VoterList = new List<Voter>();
                                 s.VoterList.Add(voterItem);
                             });
                         });
