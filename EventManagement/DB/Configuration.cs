@@ -14,13 +14,17 @@ namespace EventManagement.DB
         }
         protected override void Seed(EventDbContext context)
         {
-            using (AuthRepository authRepo = new AuthRepository())
+            using (AuthRepository authRepo = new AuthRepository(context))
             {
                 authRepo.SeedClients();
             }
-            using (AudienceRepository audRepo = new AudienceRepository())
+            using (AudienceRepository audRepo = new AudienceRepository(context))
             {
                 audRepo.SeedAudience();
+            }
+            using (EventRepository evRepo = new EventRepository(context))
+            {
+                evRepo.SeedEvents();
             }
         }
     }

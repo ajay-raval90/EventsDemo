@@ -300,8 +300,11 @@
     <Compile Include="DB\Entities\Audience.cs" />
     <Compile Include="DB\Entities\Client.cs" />
     <Compile Include="DB\Entities\Event.cs" />
+    <Compile Include="DB\Entities\location.cs" />
     <Compile Include="DB\Entities\Profile.cs" />
     <Compile Include="DB\Entities\RefreshToken.cs" />
+    <Compile Include="DB\Entities\session.cs" />
+    <Compile Include="DB\Entities\Voter.cs" />
     <Compile Include="DB\Interfaces\IAudienceRepository.cs" />
     <Compile Include="DB\Interfaces\IAuthRepository.cs" />
     <Compile Include="DB\Interfaces\IEventRepository.cs" />
@@ -326,6 +329,10 @@
     <Compile Include="Migrations\201808131040173_create_audience_table.cs" />
     <Compile Include="Migrations\201808131040173_create_audience_table.Designer.cs">
       <DependentUpon>201808131040173_create_audience_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809130654398_create_events_tables.cs" />
+    <Compile Include="Migrations\201809130654398_create_events_tables.Designer.cs">
+      <DependentUpon>201809130654398_create_events_tables.cs</DependentUpon>
     </Compile>
     <Compile Include="Ninject\NinjectResolver.cs" />
     <Compile Include="Ninject\NinjectScope.cs" />
@@ -450,7 +457,6 @@
     <Content Include="eventsapp\app\events\session-list.component.js.map" />
     <Content Include="eventsapp\app\events\shared\duration.pipe.js.map" />
     <Content Include="eventsapp\app\events\shared\event-service.js.map" />
-    <Content Include="eventsapp\app\events\shared\event-service.ts.bak" />
     <Content Include="eventsapp\app\events\shared\event.model.js.map" />
     <Content Include="eventsapp\app\events\shared\index.js.map" />
     <Content Include="eventsapp\app\events\shared\voter.service.js.map" />
@@ -467,6 +473,7 @@
     <Content Include="eventsapp\app\user\user.routes.js.map" />
     <Content Include="eventsapp\package.json" />
     <Content Include="eventsapp\tsconfig.json" />
+    <Content Include="DB\SeedData\events.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -510,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808131040173_create_audience_table.resx">
       <DependentUpon>201808131040173_create_audience_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809130654398_create_events_tables.resx">
+      <DependentUpon>201809130654398_create_events_tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

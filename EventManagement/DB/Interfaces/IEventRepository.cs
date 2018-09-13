@@ -2,16 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace EventManagement.DB.Interfaces
 {
     public interface IEventRepository : IDisposable
     {
-        IQueryable<Event> All();
+        IQueryable<Event> All(string [] include = null);
         Event Find(int? id);
         void InsertOrUpdate(Event ev);
         void Delete(int id);
         void Save();
+        void SeedEvents();
     }
 }

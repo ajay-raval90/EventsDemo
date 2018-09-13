@@ -1,5 +1,6 @@
 ﻿using EventManagement.DB;
 using EventManagement.DB.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +19,6 @@ namespace EventManagement.Controllers
 
         public ActionResult Index()
         {
-            //ViewBag.Profiles =  context.Profiles.ToList();
-
-            ViewBag.Events =_eventRepo.All().ToList();
-            ViewBag.Title = "Home Page";
-
             return View();
         }
     }
