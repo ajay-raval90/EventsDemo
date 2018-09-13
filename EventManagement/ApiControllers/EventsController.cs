@@ -39,7 +39,7 @@ namespace EventManagement.ApiControllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetById(int Id)
+        public IHttpActionResult GetById(long Id)
         {
             //var identity = (ClaimsIdentity)User.Identity;
             //IEnumerable<Claim> claims = identity.Claims;
@@ -61,6 +61,16 @@ namespace EventManagement.ApiControllers
         {
             _eventRepo.InsertOrUpdate(eve);
             _eventRepo.Save();
+            eve = _eventRepo.Find(eve.id , new string[] { "sessions.VoterList.profile", "location" });
+            eve.sessions.ToList().ForEach(session =>
+            {
+                session.voters = new string[] { };
+                if (session.VoterList != null)
+                {
+                    session.voters = session.VoterList.Select(t => t.profile.FirstName).ToArray();
+                }
+
+            });
             return Ok(eve);
         }
     }

@@ -25,20 +25,16 @@ export class EventService {
             return <IEvent>response.json();
         }).catch(this.handleError);
     }
-    saveEvent(event) {
+    saveEvent(event): Observable<IEvent>{
         //event.id = 0; //Math.ceil(Math.random() * (2000 - 900) + 900);
         //event.sessions = [];
         //Events.push(event);
         return this.http.post("/api/events/action/save",event).map((response: Response) => {
-            return <IEvent[]>response.json();
+            return <IEvent>response.json();
         }).catch(this.handleError);
         
     }
-    updateEvent(event: IEvent) {
-        let index = Events.findIndex(t => t.id == event.id);
-        Events[index] = event;
-
-    }
+    
     searchSessions(searchTerm: string) {
         let term = searchTerm.toLocaleLowerCase();
         var results: ISession[] = [];

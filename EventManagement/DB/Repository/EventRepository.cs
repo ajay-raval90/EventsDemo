@@ -39,7 +39,7 @@ namespace EventManagement.DB.Repository
             return eventsQuery;
         }
 
-        public Event Find(int? id,string [] include = null)
+        public Event Find(long? id,string [] include = null)
         {
             var eventsQuery = context.Events.AsQueryable();
             if (include != null)
@@ -62,7 +62,23 @@ namespace EventManagement.DB.Repository
             else
             {
                 // Existing entity
-                context.Entry(ev).State = System.Data.Entity.EntityState.Modified;
+                context.Entry(ev).State = EntityState.Modified;
+                if (ev.sessions != null && ev.sessions.Count > 0)
+                {
+                    foreach (var session in ev.sessions)
+                    {
+                        var exists = context.Sessions.Where(t => t.id == session.id).FirstOrDefault();
+                        if (exists == null)
+                        {
+                            context.Sessions.Add(session);
+                        }
+                        else
+                        {
+                            context.Entry(session).State = EntityState.Modified;
+                        }
+                    }
+                    
+                }
             }
         }
 

@@ -39,10 +39,6 @@ var EventService = /** @class */ (function () {
             return response.json();
         }).catch(this.handleError);
     };
-    EventService.prototype.updateEvent = function (event) {
-        var index = Events.findIndex(function (t) { return t.id == event.id; });
-        Events[index] = event;
-    };
     EventService.prototype.searchSessions = function (searchTerm) {
         var term = searchTerm.toLocaleLowerCase();
         var results = [];

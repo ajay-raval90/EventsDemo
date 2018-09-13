@@ -38,11 +38,13 @@ var EventDetailsComponent = /** @class */ (function () {
         this.sortBy = "name";
     };
     EventDetailsComponent.prototype.saveNewSession = function (session) {
-        var nextId = Math.max.apply(null, this.event.sessions.map(function (s) { return s.id; }));
-        session.id = nextId + 1;
+        var _this = this;
+        session.eventId = this.event.id;
         this.event.sessions.push(session);
-        this.eventService.updateEvent(this.event);
-        this.addMode = false;
+        this.eventService.saveEvent(this.event).subscribe(function (res) {
+            _this.addMode = false;
+            _this.event = res;
+        });
     };
     EventDetailsComponent.prototype.cancelAddSession = function () {
         this.addMode = false;

@@ -40,11 +40,12 @@ export class EventDetailsComponent implements OnInit {
         this.sortBy="name";
     }
     saveNewSession(session: ISession) {
-        const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
-        session.id = nextId + 1;
+        session.eventId = this.event.id;
         this.event.sessions.push(session);
-        this.eventService.updateEvent(this.event);
-        this.addMode = false;
+        this.eventService.saveEvent(this.event).subscribe((res: IEvent) => {
+            this.addMode = false;
+            this.event = res;
+        });
     }
     cancelAddSession() {
         this.addMode = false;

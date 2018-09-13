@@ -21,5 +21,6 @@ export interface ISession{
     duration:number,
     abstract:string,
     level:string,
-    voters:string[]
+    voters: string[],
+    eventId:number
 }
